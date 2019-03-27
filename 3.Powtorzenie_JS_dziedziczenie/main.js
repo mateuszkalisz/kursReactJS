@@ -22,3 +22,19 @@ class Student extends Person {
 
 const Janek = new Student("Janek", [1, 2, 3, 4, 5]);
 Janek.showDegrees();
+
+//mechanizm this
+
+const cat = {
+    kids: ["kociak", "łapciuch"],
+    showKidsNames() {
+        console.log(`Dziaciaki maja na imie ${this.kids}`);
+        //const that = this; i wtedy zamiast this to that na dole
+        const showKidsNumber = function () {
+            console.log(this.kids.length);
+        }.bind(this)
+        showKidsNumber();
+    },
+}
+
+cat.showKidsNames();
