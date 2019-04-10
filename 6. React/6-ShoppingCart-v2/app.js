@@ -28,18 +28,21 @@ class App extends React.Component{
   }
 
   render(){
-    console.log(this.state.availableProducts)
 
-    const style = this.state.shoppingCart === 0 ? {opacity: 0.3} : null
+    const {shoppingCart, availableProducts} = this.state;
+
+    console.log(availableProducts)
+
+    const style = shoppingCart === 0 ? {opacity: 0.3} : null
 
     return (
       <>
-      <button onClick={this.handleRemoveFromCart} disabled={this.state.shoppingCart ? false : true} >-</button>
+      <button onClick={this.handleRemoveFromCart} disabled={shoppingCart ? false : true} >-</button>
       
-      <span style={style}>{this.state.shoppingCart}</span>
+      <span style={style}>{shoppingCart}</span>
       
-      <button onClick={this.handleAddToCart} disabled={this.state.shoppingCart === this.state.availableProducts}>+</button>
-      {this.state.shoppingCart > 0 && <button onClick={this.handleBuy}>Kup</button>}
+      <button onClick={this.handleAddToCart} disabled={shoppingCart === availableProducts}>+</button>
+      {shoppingCart > 0 && <button onClick={this.handleBuy}>Kup</button>}
       </>
     )
   }
