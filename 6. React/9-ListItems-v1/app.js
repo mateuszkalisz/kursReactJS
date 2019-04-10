@@ -1,3 +1,12 @@
+const Item = (props) => {
+
+  const {fruit} = props;
+
+  return(
+    <li>{`owoc ${fruit}`}</li>
+  )
+}
+
 class ListItems extends React.Component {
 state = {
   fruits: ["jabłko", "śliwka", "gruszka"],
@@ -6,7 +15,7 @@ state = {
 render(){
   return(
     <ul>
-      {this.state.fruits.map((fruit,id)=><li key={fruit} numer={id}>{`owoc ${fruit}`}</li>)}
+      {this.state.fruits.map(fruit=><Item key={fruit} fruit={fruit}/>)}
     </ul>
   )
 }
