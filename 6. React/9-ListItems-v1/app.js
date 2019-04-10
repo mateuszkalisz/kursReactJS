@@ -13,9 +13,10 @@ state = {
 }
 
 render(){
+  const items = this.state.fruits.map(fruit=><Item key={fruit} fruit={fruit}/>)
   return(
     <ul>
-      {this.state.fruits.map(fruit=><Item key={fruit} fruit={fruit}/>)}
+      {items}
     </ul>
   )
 }
