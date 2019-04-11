@@ -3,18 +3,28 @@ const data = {
     id: 1,
     name: "Arek",
     age: 29,
+    sex: "male"
   },
   
   {
     id:2,
     name: "Mateusz",
     age: 25,
+    sex: "male"
   },
   
   {
     id:3,
-    name: "Jurek",
+    name: "Ania",
     age: 40,
+    sex: "female"
+  },
+
+  {
+    id:3,
+    name: "Stasia",
+    age: 20,
+    sex: "female"
   }
 ]
 }
@@ -22,8 +32,11 @@ const data = {
 const Item = ({user}) => {
 
   return(
-    <div>
-      <h1>Użytkownik {user.name} o id {user.id} ma lat {user.age}</h1>
+    <div className="userInfo">
+      <h1>Użytkownik {user.name}</h1>
+      <p>Id uzytkownika {user.id}</p>
+      <p>Wiek uzytkownika {user.age}</p>
+      <p>Plec {user.sex}</p>
     </div>
   )
 }
@@ -31,7 +44,8 @@ const Item = ({user}) => {
 class ListItems extends React.Component {
 
 render(){
-  const users = this.props.data.users;
+  let users = this.props.data.users;
+  users = users.filter(user=>user.sex==="female")
   const items = users.map(user=><Item key={user.id} user={user}/>)
   return(
     <ul>
