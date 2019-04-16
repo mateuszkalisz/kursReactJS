@@ -1,12 +1,17 @@
 const ListItems = (props) =>{
+
+    const items = props.items.map(item => 
+    <Item
+    key={item.id}
+    name={item.name}
+    active={item.active}/>);
+
     return(
+        <React.Fragment>
+        <h3>Twoje zamówienie</h3>
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
+            {items}
         </ul>
+        </React.Fragment>
     )
 }
