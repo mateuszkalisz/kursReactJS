@@ -33,8 +33,12 @@ class App extends React.Component{
     handleAddNewPredtictionToArray = () =>{
         if(this.state.newPrediction!=="")
         {
-            this.props.predictions.push(this.state.newPrediction)
-            alert(`Zostałą dodana nowa wróżba: ${this.state.newPrediction}, aktualnie w zbiorze wróżb znajdują się: ${this.props.predictions}`)
+            this.props.predictions.push(this.state.newPrediction);
+            alert(`Zostałą dodana nowa wróżba: ${this.state.newPrediction}, aktualnie w zbiorze wróżb znajdują się: ${this.props.predictions}`);
+            
+            this.setState({
+                newPrediction: "",
+            })
         }
         else return null;
     }
@@ -49,7 +53,7 @@ class App extends React.Component{
                 <button onClick={this.handleAddNewPredtictionToArray}>Dodaj wróżbę</button>
             </label>
             <br/>
-            <h1>{this.state.prediction}</h1>
+            {this.state.prediction ? <h1>{this.state.prediction}</h1> : null}
             </>
         )
     }
