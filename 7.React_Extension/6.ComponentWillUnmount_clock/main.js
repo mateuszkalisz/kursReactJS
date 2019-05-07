@@ -1,3 +1,32 @@
+class App extends React.Component{
+
+    state = {
+        active: true,
+    }
+
+    handleClick = ()=>{
+        this.setState({
+            active: !this.state.active,
+        })
+    }
+
+    render(){
+        return(
+            <div>
+                <SwitchButton active={this.state.active} click={this.handleClick}/>
+                {this.state.active && <Clock/>}
+
+            </div>
+        )
+    }
+}
+
+const SwitchButton = (props) =>{
+    return(
+        <button onClick={props.click}>{props.active ? "Wyłącz": "Włącz"}</button>
+    )
+}
+        
 class Clock extends React.Component{
 
     interval = ""
@@ -25,10 +54,12 @@ class Clock extends React.Component{
     }
 
     componentDidMount(){
+        console.log("Zegarek zamontowany");
         this.interval = setInterval(this.setTime.bind(this) , 1000);
     }
 
     componentWillUnmount(){
+        console.log("Zegarek wymontowany");
         clearInterval(this.interval);
     }
     
@@ -44,4 +75,4 @@ class Clock extends React.Component{
     }
 }
 
-ReactDOM.render(<Clock/>,document.getElementById("root"));
+ReactDOM.render(<App/>,document.getElementById("root"));
