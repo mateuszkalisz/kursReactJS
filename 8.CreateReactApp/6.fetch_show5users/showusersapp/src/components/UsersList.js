@@ -1,16 +1,18 @@
 import React from 'react';
+import "./UsersList.css";
 
 //sfc
 const UsersList = props => {
     console.log(props.users);
     const users = props.users.map(user =>(
-       <div key={user.login.uuid}>
+       <li key={user.login.uuid}>
+       <img src={user.picture.large} alt={user.name.last}/>
        <h4>{`Użytkownik : ${user.name.title} ${user.name.last}`}</h4>
        <p>{user.email}</p>
-       </div>
+       </li>
     ))
     return (  
-        <ul>
+        <ul className="users">
             {users}
         </ul>
     );
