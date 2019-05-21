@@ -42,21 +42,22 @@ class App extends React.Component{
     .then(response => response.json())
     .then(result =>{
       const time = new Date().toLocaleString();
-      this.setState({
+      this.setState(prevState=>({
         err: false,
         date: time,
         sunrise: result.sys.sunrise,
         sunset: result.sys.sunset,
         temp: result.main.temp,
         pressure: result.main.pressure,
-        wind: result.wind,
-        city: this.state.value,
-      })
+        wind: result.wind.speed,
+        city: prevState.value,
+      }))
     })
-    .catch(err => console.log("Nie udało się. " + err))
-    this.setState({
+    .catch(err => console.log(`Nie udało się. Błąd: ${err} Nie ma takiego miasta jak: ${this.state.city}`))
+    this.setState(prevState=>({
       err: true,
-    })
+      city: prevState.value,
+    }))
 
   }
   
@@ -68,7 +69,7 @@ class App extends React.Component{
         change={this.handleInputChange}
         submit={this.handleCitySubmit}
         />
-        <Result error={this.state.err}/>
+        <Result weather={this.state}/>
       </div>
     )
   }
