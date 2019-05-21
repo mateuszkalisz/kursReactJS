@@ -63,7 +63,7 @@ class App extends React.Component{
   
   render(){
     return (
-      <div>
+      <div className="app">
         <Form 
         value={this.state.value} 
         change={this.handleInputChange}
