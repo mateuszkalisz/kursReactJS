@@ -13,7 +13,9 @@ const UsersList = props => {
     ))
     return (  
         <ul className="users">
-            {users}
+            <li>
+                {users}
+            </li>
         </ul>
     );
 }
