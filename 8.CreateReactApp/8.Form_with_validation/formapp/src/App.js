@@ -5,33 +5,53 @@ class App extends React.Component{
   state={
     username: "",
     email: '',
+    pass: '',
+    accept: false,
   }
   
   handleChange = (e) =>{
-    console.log(e.target.type);
-    console.log(e.target.name);
 
-    const value = e.target.value;
+    const type = e.target.type;
     const name = e.target.name;
 
-     this.setState({
-      [name] : value,
+    if(type === "text" || type==="email" || type==="password")
+    {
+      const value = e.target.value;
+      this.setState({
+        [name] : value,
+        })
+    }
+    else if(type==="checkbox"){
+      const checked = e.target.checked;
+      this.setState({
+        [name] : checked,
       })
-     }
+    }
+    }
+
+  handleSubmit = (e) =>{
+    e.preventDefault();
+  }   
 
   render(){
     return(
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit} noValidate>
           <label htmlFor="user">Twoje imię:
             <input type="text" id="user" name="username" value={this.state.username} onChange={this.handleChange}/>
           </label>
-          <label htmlFor="email">Twoj adres e-mail:
+          <label htmlFor="email">Twoj e-mail:
             <input type="email" id="email" name="email" value={this.state.email} onChange={this.handleChange}/>
           </label>
-          <label htmlFor="user">Twoje imię:
-            <input type="text" id="user" name="username" value={this.state.username} onChange={this.handleChange}/>
+          <label htmlFor="password">Twoje hasło:
+            <input type="password" id="password" name="pass" value={this.state.pass} onChange={this.handleChange}/>
           </label>
+
+          <label htmlFor="accept">
+            <input type="checkbox" id="accept" name="accept" checked={this.state.accept} onChange={this.handleChange}/>Wyrażam zgodę
+          </label>
+
+          <button>Zapisz się</button>
         </form>
       </div>
     )
