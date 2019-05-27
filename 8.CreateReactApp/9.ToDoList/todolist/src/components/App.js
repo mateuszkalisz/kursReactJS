@@ -35,11 +35,44 @@ class App extends Component{
   }
 
   handleDeleteTask = (id) =>{
-    console.log("delete elementu o id " + id);
+
+    //1 sposob
+    // const tasks = [...this.state.tasks];
+    // const index = tasks.findIndex(task=>task.id === id)
+
+    // const deletedTask = tasks.splice(index,1);
+    // console.log(deletedTask);
+
+    // this.setState({
+    //   tasks: tasks,
+    // })
+    
+    //2 sposob
+    let tasks = [...this.state.tasks];
+
+    tasks = tasks.filter(task=>task.id!==id);
+
+    console.log(tasks);
+    this.setState({
+      tasks,
+    })
+  
   }
 
   handleChangeTaskStatus = (id) =>{
-    console.log("zmiana statusu elementu o id " + id)
+    
+    const tasks = Array.from(this.state.tasks);
+
+    tasks.forEach(task=>{
+      if(task.id===id){
+        task.active = false;
+      }
+    })
+
+    this.setState({
+      tasks,
+    })
+
   }
 
   render(){
