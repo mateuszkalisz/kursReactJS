@@ -130,7 +130,7 @@ class App extends React.Component{
     return(
       <div>
         <form onSubmit={this.handleSubmit} noValidate>
-          <label htmlFor="user">Twoje imię:
+          <label htmlFor="user">Podaj imię:
             <input type="text" id="user" name="username" value={this.state.username} onChange={this.handleChange}/>
             <span>{this.state.errors.username && this.messages.username_incorrect}</span>
           </label>
