@@ -20,7 +20,7 @@ class App extends Component{
         text: "umyć naczynia",
         date: '2020-03-10',
         important: false,
-        active: true,
+        active: false,
         finishDate: null,
       },
       {
@@ -29,6 +29,22 @@ class App extends Component{
         date: '2019-04-15',
         important: true,
         active: true,
+        finishDate: null,
+      },
+      {
+        id: 3,
+        text: "upiec ciasto",
+        date: '2020-04-15',
+        important: true,
+        active: true,
+        finishDate: null,
+      },
+      {
+        id: 4,
+        text: "umyć zęby",
+        date: '2019-04-15',
+        important: true,
+        active: false,
         finishDate: null,
       },
     ]
@@ -66,6 +82,7 @@ class App extends Component{
     tasks.forEach(task=>{
       if(task.id===id){
         task.active = false;
+        task.finishDate = new Date().getTime();
       }
     })
 
