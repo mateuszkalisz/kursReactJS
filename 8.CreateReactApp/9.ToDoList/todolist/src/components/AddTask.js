@@ -29,7 +29,23 @@ class AddTask extends Component {
 
     handleClick = (e) =>{
         e.preventDefault();
-        console.log("kliknął");
+        const {text, date, checked,} = this.state;
+        if(text.length>2){
+            console.log("kliknął");
+            const add = this.props.addTask(text,date,checked);
+            if(add)
+            {
+                this.setState({
+                    text: '',
+                    checked: false,
+                    date: this.minDate,
+                })
+            }
+        }
+        else{
+            alert("Nazwa zadania za krótka, wprowadź dłuższą nazwę!")
+            
+        }
     }
 
     render() { 
