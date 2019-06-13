@@ -21,7 +21,7 @@ const Header = () => {
 
 
 
-        <Switch/>
+        <Switch>
             <Route path="/" exact render={()=>(
                 <img src={img1} alt="miasto"/>
             )} />
@@ -38,11 +38,11 @@ const Header = () => {
                 <img src={img3} alt="miasto"/>
             )} />
 
-            {/* <Route render={()=>(
+            <Route render={()=>(
                 <img src={img2} alt="miasto"/>
-            )} /> */}
+            )} />
 
-        <Switch/>
+            </Switch>
 
         {/* <img src={img} alt="header"/> */}
 
