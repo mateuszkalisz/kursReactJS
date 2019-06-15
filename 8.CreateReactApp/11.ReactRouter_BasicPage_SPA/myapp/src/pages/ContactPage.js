@@ -6,19 +6,32 @@ class ContactPage extends Component{
 
     state ={
         value: '',
+        isEmpty: true,
     }
 
     handleSubmit = (e) =>{
         e.preventDefault();
         this.setState({
             value: '',
+            isEmpty: true,
         })
     }
 
     handleChange = (e) =>{
-        this.setState({
-            value: e.target.value,
-        })
+        if(e.target.value.length>0){
+            this.setState({
+                value: e.target.value,
+                isEmpty: false,
+            })
+        }
+
+        else{
+            this.setState({
+                value: e.target.value,
+                isEmpty: true,
+            })
+        }
+
     }
 
     render(){
@@ -30,8 +43,8 @@ class ContactPage extends Component{
                     <button >Wyślij</button>
                 </form>
                 <Prompt
-                    when={this.state.value}
-                    message="masz niewypełniony formularz, czy na pewno chcesz opuścić tę stronę?"
+                    when={!this.state.isEmpty}
+                    message="Masz niewypełniony formularz, czy na pewno chcesz opuścić tę stronę?"
                 />
             </div>
         )
