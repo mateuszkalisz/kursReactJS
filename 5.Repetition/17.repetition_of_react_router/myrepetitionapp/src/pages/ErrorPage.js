@@ -2,7 +2,7 @@ import React from 'react';
 
 const ErrorPage = () => {
     return (
-        <div>Error</div>
+        <div>Nie ma takiej strony</div>
     );
 }
  
