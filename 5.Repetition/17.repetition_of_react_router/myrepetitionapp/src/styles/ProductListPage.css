@@ -1,0 +1,17 @@
+.products h2{
+    font-size: 26px;
+}
+
+.products ul{
+    list-style: none;
+}
+
+.products a{
+    text-decoration: none;
+    color: black;
+}
+
+.products a:hover{
+    color: red;
+    font-weight: bold;
+}
