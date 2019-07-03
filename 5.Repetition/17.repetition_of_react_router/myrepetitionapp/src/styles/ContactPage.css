@@ -1,0 +1,30 @@
+div.contact{
+    margin: 0 20px;
+}
+
+.contact h3{
+    margin: 5px 0 20px;
+}
+
+.contact textarea{
+    height: 40vh;
+    width: 80%;
+    min-width: 100px;
+    max-height: 300px;
+    line-height: 1.4;
+}
+.contact button{
+    display: block;
+    border: 2px solid black;
+    padding: 10px 20px;
+    background-color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 20% 0 auto;
+    transition: 0.2s;
+}
+
+.contact button:hover{
+    color: yellow;
+    background-color: black;
+}
