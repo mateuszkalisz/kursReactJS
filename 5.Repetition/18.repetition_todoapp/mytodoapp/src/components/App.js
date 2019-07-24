@@ -52,10 +52,38 @@ class App extends React.Component{
 
   deleteTask = (id) =>{
     console.log("task usuniety komponentu o id " + id);
+
+    // 1sposob
+
+    // const tasks = [...this.state.tasks];
+    // const index = tasks.findIndex(task=>task.id === id);
+    // tasks.splice(index,1);
+    // this.setState({
+    //   tasks: tasks,
+    // })
+
+    //2sposob
+    let tasks = [...this.state.tasks];
+
+    tasks = tasks.filter(task=> task.id !== id);
+    this.setState({
+      tasks,
+    })
+  
   }
 
   changeTaskStatus = (id) =>{
     console.log("status tasku zmieniony komponentu o id " + id);
+    const tasks = [...this.state.tasks];
+    tasks.forEach(task =>{
+      if(task.id === id){
+        task.active = false;
+        task.finishDate = new Date().getTime();
+      }
+    })
+    this.setState({
+      tasks,
+    })
   }
 
   render(){
