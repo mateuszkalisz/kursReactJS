@@ -5,6 +5,8 @@ import TaskList from './TaskList';
 
 class App extends React.Component{
 
+  counter = 4;
+
   state = {
     tasks: [
       {
@@ -86,11 +88,35 @@ class App extends React.Component{
     })
   }
 
+
+  addTask = (text,date,important) =>{
+    console.log("dodalem obiekt");
+
+    const task ={
+      id: this.counter+1,
+      text: text,
+      date: date,
+      important: important, 
+      active: true,
+      finishDate: null,
+    }
+
+    this.counter++;
+
+    console.log(task,this.counter);
+    
+    this.setState(prevState =>({
+      tasks: [...prevState.tasks, task]
+    }))
+
+    return true;
+  }
+
   render(){
 
   return(
     <div>
-      <AddTask/>
+      <AddTask add={this.addTask}/>
       <TaskList
        tasks={this.state.tasks}
        delete={this.deleteTask}
