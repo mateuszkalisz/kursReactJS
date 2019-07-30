@@ -17,6 +17,18 @@ class AddTask extends Component {
         })
     }
 
+    handleChangeText = (e) =>{
+        this.setState({
+            text: e.target.value,
+        })
+    }
+
+    handleChangeCheckBox = (e) =>{
+        this.setState({
+            checked: e.target.checked,
+        })
+    }
+
     render() { 
 
         let maxDate = this.minDate.slice(0,4) *1 +1;
@@ -24,8 +36,8 @@ class AddTask extends Component {
 
         return (
             <div className="form">
-                <input type="text" value={this.state.text} placeholder="dodaj zadanie"/> 
-                <input type="checkbox" id="important" checked={this.state.checked}/>
+                <input type="text" value={this.state.text} onChange={this.handleChangeText} placeholder="dodaj zadanie"/> 
+                <input type="checkbox" id="important" checked={this.state.checked} onChange={this.handleChangeCheckBox}/>
                 <label htmlFor="important">Priorytet</label>
                 <br/>
                 <label htmlFor="date">Do kiedy zrobić</label>
