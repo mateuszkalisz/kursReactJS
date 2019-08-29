@@ -1,0 +1,83 @@
+header{
+    height: 20vh;
+    /* background-color: #8080803b; */
+}
+
+div.logo{
+    float: left;
+    height: 100%;
+    width: 20%;
+    padding-top: 10px;
+}
+
+div.logo .img{
+    display: block;
+    background-image: url("../img/logo.png");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 90px;
+    height: 70%;
+    padding: 30px;
+}
+
+div.logo .logoName{
+    font-size: 2.6rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    font-family: 'Lato', sans-serif;
+
+}
+
+div.logo .logoName::first-letter{
+    color: #EFBC62;
+    font-weight: bold;
+}
+
+div.menu{
+    float: right;
+    font-family: 'Lato', sans-serif;
+    padding-right: 150px;
+}
+
+div.menu ul{
+    list-style-type: none;
+}
+
+div.menu ul li{
+    float: left;
+    padding: 0 30px;
+    line-height: 20vh;
+    transition: 0.3s;
+}
+
+div.menu ul li a{
+    display: block;
+    text-decoration: none;
+    font-size: 2rem;
+    color: black;
+    text-transform: uppercase;
+}
+
+div.menu ul li:nth-child(1){
+    background-color: #EFBC62;
+}
+
+div.menu ul li:nth-child(1):hover{
+    text-decoration: underline;
+}
+
+div.menu ul li:nth-child(2):hover{
+    background-color: #EFBC62;
+    text-decoration: underline;
+}
+
+div.menu ul li:nth-child(3):hover{
+    background-color: #EFBC62;
+    text-decoration: underline;
+}
+
+div.menu ul li:nth-child(4):hover{
+    background-color: #EFBC62;
+    text-decoration: underline;
+}
